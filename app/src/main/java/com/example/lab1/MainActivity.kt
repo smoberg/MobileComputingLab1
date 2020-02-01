@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         var fabOpened = false
 
+        //shows and hides the floating buttons for time and map activity
         fab.setOnClickListener{
 
             if (!fabOpened){
@@ -32,13 +33,22 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // starts time activity when button is pressed
         fab_time.setOnClickListener{
 
             startActivity(Intent(applicationContext, TimeActivity::class.java))
         }
 
+        // starts map activity when button is pressed
         fab_map.setOnClickListener{
             startActivity(Intent(applicationContext, MapActivity::class.java))
         }
+
+        val data = arrayOf("Oulu", "Helsinki", "Tampere")
+
+        val reminderAdapter = ReminderAdapter(applicationContext, data)
+        list.adapter = reminderAdapter
+
+
     }
 }
